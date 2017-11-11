@@ -8,3 +8,13 @@ Requirements:
 * Accept Returning a Car (now it's rentable)
 * Stretch Goal - in maintenance (not rentable / no driver)
 
+Classes:
+
+* Car
+* Fleet
+
+Methods: 
+
+* Add
+* Assign
+* Return
