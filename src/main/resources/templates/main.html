@@ -3,11 +3,68 @@
 <head>
 <meta charset="UTF-8">
 <title>Rental Company App</title>
+<link rel="StyleSheet" href="/app.css" type="text/css">
 </head>
 <body>
 	<h2>Rental Car App</h2>
 	<p>
 		<a href="addCar">Add a Car</a>
 	</p>
+	<br>
+	<table>
+		<thead>
+			<h3>Available Cars</h3>
+			<tr>
+				<td>Make</td>
+				<td>Model</td>
+				<td>Year</td>
+			</tr>
+		</thead>
+		</thead>
+		<tbody>
+			{{#fleet.availableCars}}
+			<tr>
+				<td>{{ make }}</td>
+				<td>{{ model }}</td>
+				<td>{{ year }}</td>
+				<td>
+					<form method="post" action="/rentCar">
+						<input type="hidden" name="index" value="{{ -index }}">
+						<button>Rent Out A Car</button>
+					</form>
+				</td>
+			</tr>
+		</tbody>
+		{{/fleet.availableCars}}
+	</table>
+	<br>
+	<table>
+		<thead>
+			<h3>Unavailable Cars</h3>
+			<tr>
+				<td>Make</td>
+				<td>Model</td>
+				<td>Year</td>
+			</tr>
+		</thead>
+		</thead>
+		<tbody>
+			{{#fleet.unavailableCars}}
+			<tr>
+				<td>{{ make }}</td>
+				<td>{{ model }}</td>
+				<td>{{ year }}</td>
+				<td>
+					<form method="post" action="/returnCar">
+						<input type="hidden" name="index" value="{{ -index }}">
+						<button>Return Car</button>
+					</form>
+				</td>
+				</td>
+			</tr>
+		</tbody>
+		{{/fleet.unavailableCars}}
+	</table>
+
 </body>
 </html>
