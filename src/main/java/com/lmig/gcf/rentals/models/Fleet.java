@@ -5,33 +5,33 @@ import java.util.ArrayList;
 public class Fleet {
 
 	private ArrayList<Car> availableCars;
-	private ArrayList<Car> unavailableCars;
+	private ArrayList<Rental> unavailableCars;
 
 	public Fleet() {
 		availableCars = new ArrayList<Car>();
-		unavailableCars = new ArrayList<Car>();
+		unavailableCars = new ArrayList<Rental>();
 	}
 
 	public void addCar(Car car) {
 		availableCars.add(car);
 	}
 	
-	public void rentOutCar(int index) {
+	public void rentOutCar(int index, Person renter) {
 		Car car = availableCars.remove(index);
-		unavailableCars.add(car);
+		Rental rental = new Rental(car, renter);
+		unavailableCars.add(rental);
 	}
 
 	public void makeCarAvailable(int index) {
-		Car car = unavailableCars.remove(index);
-		availableCars.add(car);
-	}
-		
+		Rental rental = unavailableCars.remove(index);
+		availableCars.add(rental.getVehicle());
+	}	
 		
 	public ArrayList<Car> getAvailableCars() {
 		return availableCars;
 	}
 
-	public ArrayList<Car> getUnavailableCars() {
+	public ArrayList<Rental> getUnavailableCars() {
 		return unavailableCars;
 	}
 	
