@@ -8,13 +8,25 @@ Requirements:
 * Accept Returning a Car (now it's rentable)
 * Stretch Goal - in maintenance (not rentable / no driver)
 
+Controllers: 
+
+* RentalController
+
 Classes:
 
-* Car
-* Fleet
+* Car (make, model, year)
+* Fleet (availableCar, unavailableCar)
+* Person (firstName, lastName, licenseNumber, state)
+* Rental (person, car)
 
-Methods: 
+ModelAndViews: 
 
-* Add
-* Assign
-* Return
+* addCar
+* rentCar
+* returnCar
+
+Templates:
+
+* main
+* addCarForm
+* rentalForm
